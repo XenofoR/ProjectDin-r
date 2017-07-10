@@ -7,6 +7,8 @@ repositories {
 
 dependencies {
     compile 'org.springframework:spring-context:4.3.9.RELEASE'
+    compile 'org.webjars:jquery-mobile:1.4.5'
+    compile 'org.webjars:jquery:3.2.1'
 }
 
 jar {
