@@ -3,8 +3,39 @@
 <head> 
     <title>Getting Started: Serving Web Content</title> 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css"> </link>
+    <link rel="stylesheet" type="text/css" href="greeting.css"> </link>
+      <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+       <script src="greeting.js"></script>
 </head>
 <body>
-    <p th:text="'Hello, ' + ${name} + '!'" />
+  <div class="center"  id="datepicker"> </div>
+
+  <div id="participants">
+    <table id="participantsTable">
+      <tr>
+	<th>Participants</th>
+      </tr>
+    </table>
+    <div class="buttons">
+      <button onClick=addParticipant("Kim.Hansson")> Join </button>
+      </div>
+    </div>
+   
+  
+  <table id="suggestions">
+    <tr>
+    <th>Food</th>
+    <th>Resturant</th>
+    <th>Number of Participants</th>
+    <th></th>
+  </tr>
+  </table>
+
+  <div class="buttons">
+      <button  onClick=addSuggestion("burger","gnarly",1)>Add suggestion </button>
+</div>
+
 </body>
 </html>

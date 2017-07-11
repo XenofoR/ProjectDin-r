@@ -30,5 +30,6 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-data-redis")
     compile 'org.springframework.data:spring-data-redis:1.8.4.RELEASE'
     testCompile("org.springframework.boot:spring-boot-starter-test")
+    compile 'org.webjars:jquery:3.2.1'
 }
 
