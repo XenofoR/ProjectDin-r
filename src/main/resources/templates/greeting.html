@@ -8,6 +8,13 @@
       <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
       <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
        <script src="greeting.js"></script>
+<script>
+function addParticipant(name) {
+    //TODO call backend
+    $("#participantsTable > tbody:last-child").append('<tr><td>'+name+'</td><td class="nostretch"> <button >Remove</button></td></tr>');
+}
+
+</script>
 </head>
 <body>
   <div class="center"  id="datepicker"> </div>
@@ -38,4 +45,5 @@
 </div>
 
 </body>
+
 </html>
