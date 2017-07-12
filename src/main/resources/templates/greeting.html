@@ -4,17 +4,11 @@
     <title>Getting Started: Serving Web Content</title> 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css"> </link>
-    <link rel="stylesheet" type="text/css" href="greeting.css"> </link>
+    <link rel="stylesheet" type="text/css"  th:href="@{/css/greeting.css}"> </link>
       <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
       <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-       <script src="greeting.js"></script>
-<script>
-function addParticipant(name) {
-    //TODO call backend
-    $("#participantsTable > tbody:last-child").append('<tr><td>'+name+'</td><td class="nostretch"> <button >Remove</button></td></tr>');
-}
+ <script type="text/javascript" th:src="@{/js/greeting.js}"></script>
 
-</script>
 </head>
 <body>
   <div class="center"  id="datepicker"> </div>
@@ -26,7 +20,7 @@ function addParticipant(name) {
       </tr>
     </table>
     <div class="buttons">
-      <button onClick=addParticipant("Kim.Hansson")> Join </button>
+      <button onClick="addParticipant('Kim.Hansson')"> Join </button>
       </div>
     </div>
    
@@ -41,8 +35,14 @@ function addParticipant(name) {
   </table>
 
   <div class="buttons">
-      <button  onClick=addSuggestion("burger","gnarly",1)>Add suggestion </button>
+      <button  onClick="addSuggestion('sdf','sfsdf',3)">Add suggestion </button>
 </div>
+
+<script>
+    function popup() {
+        window.open("../eventdetail", 'window', 'width=200,height=100');
+    }
+</script>
 
 </body>
 
