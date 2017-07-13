@@ -1,9 +1,12 @@
+var prefix = "/result"
+
  $( function() {
   $("#datepicker").datepicker({
+      dateFormat: "yymmdd",
       onSelect: function(date) {
 	  $.ajax({
 	      type: 'GET',
-	      url: prefix + '?' + date,
+	      url: prefix + '?date=' + date,
 	      dataType: 'json',
 	      async: true,
 	      success: function(result) {
@@ -15,6 +18,7 @@
 	  });
 	  } });
  });
+
 
 $( function() {
     $( "#suggestionDialog" ).dialog({
@@ -47,3 +51,4 @@ function addParticipant(name) {
     //TODO call backend
     $("#participantsTable > tbody:last-child").append('<tr><td>'+name+'</td><td class="nostretch"> <button >Remove</button></td></tr>');
 }
+

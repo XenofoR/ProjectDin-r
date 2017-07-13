@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.ServletContext;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 @Controller
@@ -21,19 +23,28 @@ public class GreetingController2 {
     private ApplicationContext servletContext;
 
 
-    @RequestMapping("/result")
-    public @ResponseBody Set<String> result(@RequestParam(value="date", required=false, defaultValue="World") String date, Model model) {
+    @RequestMapping(value = "/result", produces = "application/json")
+    public @ResponseBody List<Suggestion> result(@RequestParam(value="date", required=false, defaultValue="World") String date, Model model) {
         model.addAttribute("date", date);
 
 
         RedisOperations template = servletContext.getBean(RedisOperations.class);
 
         Set<String> lunches = template.keys(date+"*");
+        List<Suggestion> results = new ArrayList<>();
+
+        if (lunches!= null && lunches.size()>0) {
 
 
+            results= template.opsForValue().multiGet(lunches);//.forEach(e -> results.add(e.toString()));
+
+//        results.add(results2.get(0).toString());
+
+            System.out.println(results.get(0));
+        }
 
 
-        return lunches;
+        return results;
     }
 
 }
