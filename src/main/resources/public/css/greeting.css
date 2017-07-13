@@ -31,7 +31,7 @@ tr:nth-child(even) {
     padding: 10px;
 }
 
-.buttons{
+.centralbutton{
     text-align: center;
     padding-top: 20px;
 }

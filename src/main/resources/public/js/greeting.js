@@ -16,7 +16,7 @@ var prefix = "/result"
 		  alert(jqXHR.status + ' ' + jqXHR.responseText);
 	      }
 	  });
-	  } });
+      } });
  });
 
 
@@ -25,30 +25,28 @@ $( function() {
 	autoOpen: false
     });
 });
-
-$( function() {
-    $( "#postSuggestion").button()
-});
-
  $( function() {
      $( "#participants" ).dialog({
 	 autoOpen: false
-     }
-     );
+     });	 
  } );
 
-function addSuggestion(food, resturant, numParticipants) {
-  $("#suggestions > tbody:last-child").append('<tr><td>'+food+'</td> <td>'+resturant+'</td><td class="nostretch">'+numParticipants+'</td><td class="nostretch"> <button onClick=listParticipants()>Join/Leave</button></td></tr>');
-  
-}
+$( function() {
+    $( "#participantButton").button({
+	label:"Join"}).click(function() {
+	    $("#participantsTable > tbody:last-child").append('<tr><td>name</td><td class="nostretch"> <button >Remove</button></td></tr>');
+	});
+});
 
+
+$( function() {
+    $( "#suggestionButton").button({
+	label:"Add"
+    }).click(function(){
+	$("#suggestions > tbody:last-child").append('<tr><td>'+$("#Food").val()+'</td> <td>'+$("#Restaurant").val()+'</td><td class="nostretch">1</td><td class="nostretch"> <button onClick=listParticipants()>Join/Leave</button></td></tr>')
+	$("#suggestionDialog").dialog("close")});
+});
 
 function listParticipants() {
     $("#participants").dialog("open");
 }
-
-function addParticipant(name) {
-    //TODO call backend
-    $("#participantsTable > tbody:last-child").append('<tr><td>'+name+'</td><td class="nostretch"> <button >Remove</button></td></tr>');
-}
-

@@ -13,20 +13,26 @@
 <body>
   <div class="center"  id="datepicker"> </div>
 
-  <div id="participants">
+  <div id="participants" class="centralbuttons">
     <table id="participantsTable">
       <tr>
 	<th>Participants</th>
       </tr>
     </table>
-    <div class="buttons">
-      <button onClick="addParticipant('Kim.Hansson')"> Join </button>
+    <div id="participantButton">
       </div>
     </div>
    
 
-  <div id="suggestionDialog">
-    
+  <div id="suggestionDialog" class="centralbutton">
+      Type of Food:<br>
+      <input type="text" id="Food">
+      Resturant name:<br>
+      <input type="text" id="Restaurant">
+      Your name:<br>
+      <input type="text" id="Participant">
+    <div id="suggestionButton">
+    </div>
     </div>
   
   <table id="suggestions">
@@ -38,15 +44,9 @@
   </tr>
   </table>
 
-  <div class="buttons">
-      <button  onClick="addSuggestion('sdf','sfsdf',3)">Add suggestion </button>
+  <div class="centralbutton">
+      <button  onClick="$('#suggestionDialog').dialog('open')">Add suggestion </button>
 </div>
-
-<script>
-    function popup() {
-        window.open("../eventdetail", 'window', 'width=200,height=100');
-    }
-</script>
 
 </body>
 
