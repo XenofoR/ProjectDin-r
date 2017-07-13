@@ -14,6 +14,8 @@ public class Suggestion implements Serializable {
     ArrayList<String> participants = new ArrayList<String>();
     private int id;
 
+    Suggestion () {};
+
     Suggestion(int id) {
         this.id = id;
     }

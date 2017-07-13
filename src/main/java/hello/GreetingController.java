@@ -26,12 +26,13 @@ public class GreetingController {
 
 
     @RequestMapping("/greeting")
-    public String greeting(@RequestParam(value="name", required=false, defaultValue="World") String name, Model model) {
-        model.addAttribute("name", name);
+    public String greeting(@RequestParam(value="date", required=false, defaultValue="World") String date, Model model) {
+        model.addAttribute("date", date);
+
 
         RedisOperations template = servletContext.getBean(RedisOperations.class);
 
-        Set<String> lunches = template.keys("2017*");
+        Set<String> lunches = template.keys(date+"*");
 
         model.addAttribute("lunches", lunches);
 
@@ -46,7 +47,12 @@ public class GreetingController {
         s.addParticipant("Kim Hansson");
 
 
-        template.opsForValue().set(name+":"+counter,s);
+        /*template.opsForValue().set(date+":"+counter,s);
+        Suggestion sf = (Suggestion)template.opsForValue().get("20170714:7");
+
+        sf.setFood("program chaned");
+
+        template.opsForValue().set("20170714:7",sf);*/
 
         return "greeting";
     }
