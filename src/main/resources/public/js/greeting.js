@@ -34,7 +34,7 @@ $( function() {
 $( function() {
     $( "#participantButton").button({
 	label:"Join"}).click(function() {
-	    $("#participantsTable > tbody:last-child").append('<tr><td>name</td><td class="nostretch"> <button >Remove</button></td></tr>');
+	    $("#participantsTable > tbody:last-child").append('<tr><td>'+$("#participantName").val()+'</td><td class="nostretch"> <button onClick=removeParticipant() >Remove</button></td></tr>');
 	});
 });
 
@@ -49,4 +49,8 @@ $( function() {
 
 function listParticipants() {
     $("#participants").dialog("open");
+}
+
+function removeParticipant() {
+    alert("Not implemented yet...");
 }
